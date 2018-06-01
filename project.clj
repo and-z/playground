@@ -32,8 +32,11 @@
                 :asset-path "js/out"
                 :output-to "resources/public/js/app.js"
                 :output-dir "resources/public/js/out"
+                ;; currently not possible to use DEV React build
+                ;; due to known bug in closure compiler
                 :closure-defines {process.env/NODE_ENV "production"}
                 :install-deps true
                 :npm-deps {:react "16.4.0"
                            :react-dom "16.4.0"
-                           :create-react-class "15.6.3"}}}]})
+                           :create-react-class "15.6.3"
+                           :rmwc "1.6.4"}}}]})
