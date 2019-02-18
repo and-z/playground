@@ -1,10 +1,10 @@
 (ns playground.app.core
-  (:require [reagent.core :as r]
-            [rmwc :as ui]))
+  #_(:require [reagent.core :as r]
+            #_[rmwc :as ui]))
 
 (enable-console-print!)
 
-(defn hello-world []
+#_(defn hello-world []
   (let [open? (r/atom false)]
     (fn hello-world* []
       [:div
@@ -48,4 +48,15 @@
          [:h1 "Hallo, wie geht's?"]
          [:> ui/Checkbox "Gut"][:> ui/Checkbox "Schlecht"]]]])))
 
-(r/render [hello-world] (.getElementById js/document "app"))
+(defn hello-world []
+  [:p "Hello world"])
+
+(defn root-el []
+  (.getElementById js/document "app"))
+
+(defn render [el msg]
+  (set! (.-innerHTML el) msg))
+
+#_(r/render [hello-world] )
+
+(render (root-el) "Hello reloading")
