@@ -1,5 +1,6 @@
 (ns playground.app.core
-  #_(:require [reagent.core :as r]
+  (:require [reagent.core :as r]
+            [button]
             #_[rmwc :as ui]))
 
 (enable-console-print!)
@@ -49,7 +50,9 @@
          [:> ui/Checkbox "Gut"][:> ui/Checkbox "Schlecht"]]]])))
 
 (defn hello-world []
-  [:p "Hello world"])
+  [:div
+   [:p "Hello reloading"]
+   [:> button "OK"]])
 
 (defn root-el []
   (.getElementById js/document "app"))
@@ -57,6 +60,4 @@
 (defn render [el msg]
   (set! (.-innerHTML el) msg))
 
-#_(r/render [hello-world] )
-
-(render (root-el) "Hello reloading")
+(r/render [hello-world] (root-el))

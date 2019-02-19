@@ -1,1 +1,2 @@
+^{:npm {:bundles {"dist/index.bundle.js" "src/js/index.js"}}}
 {:main playground.app.core}
